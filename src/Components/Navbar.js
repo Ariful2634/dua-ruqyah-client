@@ -4,6 +4,10 @@ import img from '../assets/profile 1.png'
 import Image from 'next/image';
 import { IoSearchOutline } from "react-icons/io5";
 import { IoMdSettings } from "react-icons/io";
+import grp1 from '../assets/Group 1 (1).svg'
+import grp2 from '../assets/Group 1 (2).svg'
+import grp3 from '../assets/Group 2.svg'
+import grp4 from '../assets/Group 1 (3).svg'
 
 const Navbar = () => {
 
@@ -14,17 +18,17 @@ const Navbar = () => {
 
     useEffect(() => {
         const closeDrawerOnOutsideClick = (event) => {
-          if (open && !event.target.closest('.drawer')) {
-            setOpen(false);
-          }
+            if (open && !event.target.closest('.drawer')) {
+                setOpen(false);
+            }
         };
-    
+
         document.addEventListener('click', closeDrawerOnOutsideClick);
-    
+
         return () => {
-          document.removeEventListener('click', closeDrawerOnOutsideClick);
+            document.removeEventListener('click', closeDrawerOnOutsideClick);
         };
-      }, [open]);
+    }, [open]);
 
     // console.log(open)
     return (
@@ -58,15 +62,31 @@ const Navbar = () => {
                         </ul>
                         {/* for drawer */}
                         <div className={`flex ${open ? 'overflow-x-hidden' : ''}`}>
-                        {open && <div className="fixed inset-0 bg-black opacity-50"></div>}
-                                <div onClick={toggleDrawer}>
-                                    <IoMdSettings className='text-green-600 text-xl'></IoMdSettings>
-                                </div>
+                            {open && <div className="fixed inset-0 bg-black opacity-30"></div>}
+                            <div onClick={toggleDrawer}>
+                                <IoMdSettings className='text-green-600 text-xl'></IoMdSettings>
+                            </div>
                             {/* Drawer */}
                             {open && (
-                                <div className="fixed top-0 right-0 h-full w-[300px] bg-white text-black rounded-tl-2xl rounded-bl-2xl p-8">
-                                    <h2>Drawer Content</h2>
+                                <div className="fixed h-[100vh] top-0 right-0 overflow-auto lg:overflow-hidden w-[320px] bg-white text-black rounded-tl-2xl rounded-bl-2xl p-8">
                                     
+                                        <div>
+                                        <h2 className='text-center text-xl font-bold mb-8 mt-3'>Settings</h2>
+                                        <div className='bg-gray-200 p-2 w-[250px] rounded-lg mb-4'>
+                                            <Image src={grp1} width={193} height={150} alt='group1'></Image>
+                                        </div>
+                                        <div className='bg-gray-200 p-2 w-[250px] rounded-lg mb-4'>
+                                            <Image src={grp2} width={170} height={150} alt='group2'></Image>
+                                        </div>
+                                        <div className='bg-gray-200 p-2 w-[250px] rounded-lg mb-4'>
+                                            <Image src={grp3} width={150} height={140} alt='group3'></Image>
+                                        </div>
+                                        <div className='bg-gray-200 p-2 w-[250px] rounded-lg border-l-4 border-green-600 mb-4'>
+                                            <Image src={grp4} width={193} height={150} alt='group4'></Image>
+                                        </div>
+                                        </div>
+                                  
+
                                 </div>
                             )}
                         </div>

@@ -4,7 +4,7 @@ import React from 'react';
 
 const HomePage = () => {
   return (
-    <div className='flex'>
+    <div className='flex bg-gray-200 '>
       <LeftBar></LeftBar>
       <Navbar></Navbar>
     </div>
