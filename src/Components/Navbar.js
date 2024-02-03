@@ -32,15 +32,15 @@ const Navbar = () => {
 
     // console.log(open)
     return (
-        <div className='w-[92%]'>
+        <div className='w-full'>
             <div className="navbar ">
                 <div className="flex-1">
                     <a className="btn btn-ghost text-xl">Dua Page</a>
                 </div>
-                <div className="flex-none gap-40">
-                    <div className="form-control hidden lg:block">
-                        <input type="text" placeholder="Search by Dua Name" className="input input-bordered w-24 md:w-auto relative" />
-                        <div className='w-[35px] text-center rounded absolute p-2 top-4 right-[250px] bg-gray-300'>
+                <div className="flex-none ml-28 lg:ml-[600px]">
+                    <div className="form-control  hidden lg:block">
+                        <input type="text" placeholder="Search by Dua Name" className="input bg-white input-bordered w-24 md:w-auto mr-20 relative" />
+                        <div className='w-[35px] text-center rounded absolute p-2 top-4 cursor-pointer right-[265px] bg-gray-300'>
                             <IoSearchOutline></IoSearchOutline>
                         </div>
                     </div>

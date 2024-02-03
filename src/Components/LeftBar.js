@@ -15,7 +15,7 @@ import want from "../assets/I want to support.png"
 
 const LeftBar = () => {
     return (
-        <div className='w-[100px] bg-white rounded-t-3xl rounded-b-3xl overflow-auto h-[100vh]'>
+        <div className='lg:w-[100px] w-[80px] bg-white rounded-t-3xl rounded-b-3xl overflow-auto h-[100vh]'>
             <div>
                 <div className='flex justify-center '>
                     <Image src={dua} width={90} height={90} className='mt-3' alt='duaPic'></Image>
