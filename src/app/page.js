@@ -9,9 +9,9 @@ const HomePage = () => {
       <LeftBar></LeftBar>
       <div>
         <Navbar></Navbar>
-        <div>
+        
           <Categories></Categories>
-        </div>
+        
       </div>
     </div>
   );

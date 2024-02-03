@@ -62,13 +62,13 @@ const Navbar = () => {
                         </ul>
                         {/* for drawer */}
                         <div className={`flex ${open ? 'overflow-x-hidden' : ''}`}>
-                            {open && <div className="fixed inset-0 bg-black opacity-30"></div>}
+                            {open && <div className="fixed z-10 inset-0 bg-black opacity-30"></div>}
                             <div onClick={toggleDrawer}>
                                 <IoMdSettings className='text-green-600 text-xl'></IoMdSettings>
                             </div>
                             {/* Drawer */}
                             {open && (
-                                <div className="fixed h-[100vh] top-0 right-0 overflow-auto lg:overflow-hidden w-[320px] bg-white text-black rounded-tl-2xl rounded-bl-2xl p-8">
+                                <div className="fixed h-[100vh] z-10 top-0 right-0 overflow-auto lg:overflow-hidden w-[320px] bg-white text-black rounded-tl-2xl rounded-bl-2xl p-8">
                                     
                                         <div>
                                         <h2 className='text-center text-xl font-bold mb-8 mt-3'>Settings</h2>
