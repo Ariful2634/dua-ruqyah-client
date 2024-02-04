@@ -102,7 +102,7 @@ const Categories = () => {
                                             <div className='flex justify-between items-center'>
                                                 <div>
                                                     {
-                                                        arab.audio !== null && <audio controls>
+                                                        arab.audio !== null && <audio className='lg:w-[300px] w-[100px]' controls>
                                                             <source src={arab.audio} type="audio/mp3" />
                                                         </audio>
                                                     }
@@ -129,14 +129,14 @@ const Categories = () => {
                         <AiOutlineMenu className="text-2xl ml-1 "></AiOutlineMenu>
                     </label>
                 </div>
-                <div className="drawer-side lg:bg-white rounded-tl-xl lg:h-[600px] overflow-hidden rounded-tr-2xl">
+                <div className="drawer-side lg:bg-white lg:rounded-tl-xl lg:h-[600px] overflow-hidden lg:rounded-tr-2xl">
                     <label
                         htmlFor="my-drawer-2"
                         aria-label="close sidebar"
                         className="drawer-overlay"
                     ></label>
 
-                    <div className='bg-green-600 text-white text-center z-10  py-4 mb-3 '>
+                    <div className='bg-green-600 text-white w-full  text-center z-10  py-4 mb-3 '>
                         <h2>Categories</h2>
                     </div>
                     <div className='text-center hidden lg:block'>
@@ -145,7 +145,7 @@ const Categories = () => {
                             <IoSearchOutline className='text-xl'></IoSearchOutline>
                         </div>
                     </div>
-                    <div className="w-[320px] h-[500px] p-3 mb-3 justify-between   my-2 flex flex-col overflow-auto">
+                    <div className="w-[320px] h-[500px] p-3 mb-3 justify-between mt-12 lg:mt-0  my-2 flex flex-col overflow-auto">
 
                         <div>
                             {
