@@ -13,6 +13,7 @@ import { MdOutlineReport } from "react-icons/md";
 const Categories = () => {
 
 
+    const [selectedCategory, setSelectedCategory] = useState(null);
     const [subCat, setSubCat] = useState([])
     const [duas, setDuas] = useState([])
     const [arabic, setArabic] = useState([])
@@ -58,11 +59,12 @@ const Categories = () => {
 
 
     const handleCategoryClick = (cat_id) => {
-        // setSelectedCategory(cat_id);
-        // console.log(cat_id)
-
-        // Assuming 'duas' is an array of objects with a 'cat_id' property
+    
+        setSelectedCategory(cat_id);
+    
         const filteredDuas = duas.filter((dua) => dua.cat_id === cat_id);
+        // console.log('Filtered Duas:', filteredDuas);
+    
         setArabic(filteredDuas);
     };
 
@@ -79,12 +81,14 @@ const Categories = () => {
                     <div className="lg:ml-10  mt-8  h-[600px] overflow-auto">
                         <div >
                             {
-                                arabic.map((arab, index) => (<div key={arab.id}>
+                                arabic.map((arab) => (<div key={arab.id}>
                                     <div className='bg-white p-5 mb-4 rounded-xl'>
                                         <div className='space-y-4'>
                                             <div className='flex items-center gap-3'>
                                                 <Image src={allah} width={40} height={40} alt='Allah'></Image>
-                                                <p className='mb-2 text-[#1FA45B] font-bold'>{index + 1}. {arab.dua_name_en}</p>
+                                              {
+                                                arab.dua_name_en !== null &&  <p className='mb-2 text-[#1FA45B] font-bold'>{arab.dua_id}. {arab.dua_name_en}</p>
+                                              }
                                             </div>
                                             <p className='mb-2 font-medium'>{arab.top_en}</p>
                                             <p className='mb-2 font-medium text-xl lg:text-3xl'>{arab.dua_arabic}</p>
@@ -102,8 +106,8 @@ const Categories = () => {
                                             <div className='flex justify-between items-center'>
                                                 <div>
                                                     {
-                                                        arab.audio !== null && <audio className='lg:w-[300px] w-[100px]' controls>
-                                                            <source src={arab.audio} type="audio/mp3" />
+                                                        arab?.audio !== null && <audio className='lg:w-[300px] w-[100px]' controls>
+                                                            <source src={arab?.audio} type="audio/mp3" />
                                                         </audio>
                                                     }
                                                 </div>
@@ -149,12 +153,12 @@ const Categories = () => {
 
                         <div>
                             {
-                                category.map((cat) => (
+                                category.map(cat => (
                                     <div key={cat.id} className="collapse " >
                                         <input type="radio" name="my-accordion-2" className='w-52  mb-2 ' checked="checked" />
-                                        <div onClick={() => handleCategoryClick(cat.cat_id)} className="collapse-title text-xl mb-2 font-medium text-center bg-gray-200">
-                                            {/* <Image src={`http://localhost:3001/getCategory/${cat.cat_icon}`} alt='icon' width={50} height={50}></Image> */}
-
+                                        <div onClick={() => handleCategoryClick(cat.cat_id)}  className={`collapse-title text-xl mb-2 font-medium text-center bg-gray-200 ${
+                                    selectedCategory === cat.cat_id ? 'selected' : ''
+                                }`}>
                                             <h2>{cat.cat_name_en}</h2>
                                         </div>
                                         <div className="collapse-content text-black">
@@ -166,7 +170,7 @@ const Categories = () => {
                                                             <div className="timeline-start">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" /></svg>
                                                             </div>
-                                                            <div className=" timeline-box bg-white "><h2>{sub.subcat_name_en}</h2></div>
+                                                            <div className=" timeline-box bg-white " onClick={() => handleCategoryClick(cat.cat_id)}><h2>{sub.subcat_name_en}</h2></div>
                                                         </li>
                                                     </ul>))
                                                 }
